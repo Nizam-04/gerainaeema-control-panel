@@ -11,4 +11,29 @@
     }
     return $rows;
   }
+
+  function tambah($data) {
+    global $conn;
+
+    $kategori = htmlspecialchars($data["kategori"]);
+    $nama = htmlspecialchars($data["nama"]);
+    $deskripsi = htmlspecialchars($data["deskripsi"]);
+    $harga = htmlspecialchars($data["harga"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+
+    $query = "INSERT INTO products
+                VALUES
+              ('', '$kategori', '$nama', '$deskripsi', '$harga', '$gambar')
+            ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+  }
+
+  function hapus($id) {
+    global $conn;
+    mysqli_query($conn, "DELETE FROM products WHERE id = $id");
+
+    return mysqli_affected_rows($conn);
+  }
 ?>
