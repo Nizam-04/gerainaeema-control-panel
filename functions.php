@@ -36,4 +36,27 @@
 
     return mysqli_affected_rows($conn);
   }
+
+  function ubah($data) {
+    global $conn;
+
+    $id = $data["id"];
+    $kategori = htmlspecialchars($data["kategori"]);
+    $nama = htmlspecialchars($data["nama"]);
+    $deskripsi = htmlspecialchars($data["deskripsi"]);
+    $harga = htmlspecialchars($data["harga"]);
+    $gambar = htmlspecialchars($data["gambar"]);
+
+    $query = "UPDATE products SET
+                kategori = '$kategori',
+                nama = '$nama',
+                deskripsi = '$deskripsi', 
+                harga = '$harga',
+                gambar = '$gambar'
+              WHERE id = $id
+              ";
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+  }
 ?>

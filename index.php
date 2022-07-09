@@ -61,7 +61,7 @@
       <tr>
         <td><?= $i; ?></td>
         <td>
-          <a href="#">Edit</a><br><br>
+          <a href="ubah.php?id=<?= $row["id"]; ?>">Ubah</a><br><br>
           <a href="hapus.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah anda yakin?')">Hapus</a>
         </td>
         <td><img src="img/<?= $row["gambar"]; ?>" alt="" width="50"></td>
