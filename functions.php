@@ -59,4 +59,15 @@
 
     return mysqli_affected_rows($conn);
   }
+
+  function cari($keyword) {
+    $query = "SELECT * FROM products
+                WHERE
+              kategori LIKE '%$keyword%' OR
+              nama LIKE '%$keyword%' OR
+              deskripsi LIKE '%$keyword%' OR
+              harga LIKE '%$keyword%'
+            ";
+    return query($query);
+  }
 ?>

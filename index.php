@@ -1,6 +1,11 @@
 <?php
   require 'functions.php';
   $products = query("SELECT * FROM products");
+
+  // Tombol cari ditekan
+  if(isset($_POST["cari"])) {
+    $products = cari($_POST["keyword"]);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +48,12 @@
 
     <a href="tambah.php">Tambah Produk</a>
     <br><br>
+
+    <form action="" method="post">
+      <input type="text" name="keyword" size="40" autofocus placeholder="Masukkan keyword pencarian..." autocomplete="off">
+      <button type="submit" name="cari">Cari</button>
+    </form>
+    <br>
 
     <table border="1" cellpadding="10" cellspacing="0">
 
