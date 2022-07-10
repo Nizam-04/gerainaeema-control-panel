@@ -40,8 +40,9 @@
 <body>
   <h1>Ubah Produk</h1>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= $pro["id"]; ?>">
+    <input type="hidden" name="gambarLama" value="<?= $pro["gambar"]; ?>">
     <ul>
       <li>
         <label for="kategori">Kategori : </label>
@@ -61,7 +62,8 @@
       </li>
       <li>
         <label for="gambar">Gambar : </label>
-        <input type="text" name="gambar" id="gambar" value="<?= $pro["gambar"]; ?>">
+        <img src="img/<?= $pro['gambar']; ?>" width="40"><br>
+        <input type="file" name="gambar" id="gambar">
       </li>
       <li>
         <button type="submit" name="submit">Ubah</button>
