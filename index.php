@@ -1,4 +1,10 @@
 <?php
+  session_start();
+  if(!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+  }
+
   require 'functions.php';
   $products = query("SELECT * FROM products");
 
@@ -44,6 +50,7 @@
 </head>
 <body>
   <div class="container">
+    <a href="logout.php">Logout</a>
     <h1>Daftar Produk</h1>
 
     <a href="tambah.php">Tambah Produk</a>
